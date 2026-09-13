@@ -57,14 +57,6 @@ mpirun -np 20 python3 main.py --input examples/4.6.boundary/02.toml
 
 Stage 1 must complete before stage 2 starts; the second run reads the first run's checkpoint.
 
-::: warning Mesh path
-`02.toml` requests `data/mesh/11/Lx1500_30C.xdmf`; the file present is `Lx1500_30C_S90.xdmf`. Correct the path before running. (On restart the mesh is taken from the checkpoint, but the input mesh is still opened at startup.)
-:::
-
-::: tip Parameter note
-The two inputs differ in $\zeta$ as well as in boundary conditions — $\zeta = 0.75$ in stage 1 and $\zeta = 2.0$ in stage 2.
-:::
-
 ## Results
 
 **Fixed margin.** During the fixed-boundary stage, tensile stresses accumulate along the constrained face, leading to immediate crevasse initiation at $y = 750\,\mathrm{m}$ along the lateral margin. Only a few crevasses near the terminus propagate, with **arcuate paths** that gradually curve toward the right (ocean) boundary. A fixed lateral constraint concentrates stress along the margin and restricts the development of crevasses far from the ocean boundary perpendicular to the flow direction.

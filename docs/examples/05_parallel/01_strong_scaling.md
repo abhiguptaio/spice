@@ -24,10 +24,6 @@ done
 
 Change `output.directory` between runs, or the six runs will overwrite each other's results.
 
-::: warning Mesh path
-This input requests `data/mesh/10/Lx500_1C_NA_4M.xdmf`. The file present in that directory is `Lx500_1C_NA.xdmf` (4,441,412 vertices). Correct the path or supply the mesh from the [Zenodo archive](https://doi.org/10.5281/zenodo.18435068) before running.
-:::
-
 ### Results
 
 All times in seconds, for one AM iteration.
