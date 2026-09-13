@@ -18,24 +18,22 @@ const { Layout } = DefaultTheme
 <style scoped>
 
 
+/* Phone and tablet: the hero stacks, so span the full content column and let
+   the height follow the image's aspect ratio. */
 .hero-video {
-  /* margin-top: calc((var(--vp-nav-height) + var(--vp-layout-top-height, 0px)) * -1); */
-  /* padding: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 48px) 24px 48px; */
-  /* height: 300px; */
-
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-@media (min-width: 640px) {
-  .hero-video {
-    height: 400px;
-  }
-
-}
-
+/* Desktop: size to the image's own aspect ratio rather than filling the
+   column. With width:100% the SVG letterboxes and draws centred inside a
+   wider box, so the card never reaches the right edge. No auto margins, so
+   the flex container can align it right. */
 @media (min-width: 960px) {
   .hero-video {
-    margin-left: 2rem;
-    width: 100%;
+    margin: 0;
+    width: auto;
     height: 450px;
   }
 }

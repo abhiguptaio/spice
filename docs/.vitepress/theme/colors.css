@@ -1,18 +1,13 @@
 /* https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css */
 :root {
-  --vp-font-family-base: "Inter";
+  --vp-font-family-base: "DM Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(
     120deg,
-    #bd34fe 30%,
-    #41d1ff
+    #0071e3 30%,
+    #32ade6
   );
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #bd34fe 50%,
-    #47caff 50%
-  );
-  --vp-home-hero-image-filter: blur(44px);
 }
 
 html {
@@ -34,10 +29,40 @@ html {
   letter-spacing: -0.06rem !important;
 }
 
+.VPHero .heading .text {
+  font-weight: 500 !important;
+  line-height: 1.1 !important;
+}
+
 .image {
-    margin: 0 !important;
-    margin-bottom: 40px !important;
+  margin: 0 !important;
+}
+
+/* Below desktop the hero stacks, so the heading needs clearance under the
+   image. On desktop they sit side by side and any bottom margin here inflates
+   the flex line, pushing the picture off centre. */
+@media (max-width: 959px) {
+  .VPHero .image {
+    margin-bottom: 32px !important;
   }
+
+  /* Let the picture span the content column rather than VitePress's fixed
+     320/392px box. */
+  .VPHero .image-container {
+    width: 100%;
+    height: auto;
+  }
+
+  /* VitePress centres the stacked hero; align it left to match desktop.
+     Its rules are scoped (`[data-v-*]`), so they win the specificity tie. */
+  .VPHero.has-image .container {
+    text-align: left !important;
+  }
+
+  .VPHero.has-image .actions {
+    justify-content: flex-start !important;
+  }
+}
 
 img{
 border-radius: 8px;
@@ -47,19 +72,6 @@ border-radius: 8px;
   border-radius: 0px;
 }
 
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
-
-}
 
 .VPHero .VPImage {
   filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2));
@@ -85,19 +97,197 @@ iframe[src*="vimeo.com"] {
 }
 
 
-/* .vitepress/theme/custom.css */
-/* Dark mode: override everywhere via html.dark */
-/*👉html.dark {
-  ➡ Main page backgrounds ⬅
-  --vp-c-bg:       #0C1C29; ➡ Main background ⬅
-  --vp-c-bg-alt:   #080A0D; ➡ Sidebar ⬅
-  --vp-c-bg-soft:  #080A0D; ➡ Card background ⬅
-  --vp-c-divider:  #505b6169; ➡ Divider ⬅
-}👈*/
+:root {
+  /* Light mode — macOS light appearance. Mirrors html.dark below. */
 
-/*👉html.dark {
-  --vp-c-bg:       #212A38;
-  --vp-c-bg-alt:   #2b384b;  
-  --vp-c-bg-soft:  #2b384b;   
-  --vp-c-divider:  #6A747969;
-}👈*/
+  /* Surfaces */
+  --vp-c-bg: #ffffff;            /* content area — systemBackground */
+  --vp-c-bg-alt: #f5f5f7;        /* sidebar / nav / footer / code blocks */
+  --vp-c-bg-elv: #ffffff;        /* elevated: search, code groups */
+  --vp-c-bg-soft: #f5f5f7;       /* cards, feature tiles */
+  --vp-c-gutter: #e5e5ea;        /* sidebar / content seam — systemGray5 */
+
+  /* Text — Apple label colors */
+  --vp-c-text-1: rgba(0, 0, 0, 0.85);       /* labelColor */
+  --vp-c-text-2: rgba(60, 60, 67, 0.68);    /* secondaryLabelColor */
+  --vp-c-text-3: rgba(60, 60, 67, 0.4);     /* tertiaryLabelColor */
+
+  /* Separators — separatorColor */
+  --vp-c-divider: rgba(60, 60, 67, 0.14);
+  --vp-c-border: rgba(60, 60, 67, 0.29);
+
+  /* Neutrals — systemGray light ramp (3 rests, 1 is pressed) */
+  --vp-c-gray-1: #d1d1d6;
+  --vp-c-gray-2: #e5e5ea;
+  --vp-c-gray-3: #f2f2f7;
+  --vp-c-gray-soft: rgba(142, 142, 147, 0.12);
+
+  /* Accent — systemBlue */
+  --vp-c-brand-1: #0066cc;       /* links and emphasis */
+  --vp-c-brand-2: #0077ed;       /* hover */
+  --vp-c-brand-3: #0071e3;       /* solid button background */
+  --vp-c-brand-soft: rgba(0, 122, 255, 0.1);
+
+  /* Custom blocks — systemOrange and systemRed */
+  --vp-c-warning-1: #9a5b00;
+  --vp-c-warning-2: #c77b00;
+  --vp-c-warning-3: #e08600;
+  --vp-c-warning-soft: rgba(255, 149, 0, 0.11);
+
+  --vp-c-danger-1: #c1271d;
+  --vp-c-danger-2: #e0362a;
+  --vp-c-danger-3: #ff3b30;
+  --vp-c-danger-soft: rgba(255, 59, 48, 0.1);
+}
+
+html.dark {
+  /* Surfaces */
+  --vp-c-bg: #1c1c1e;            /* content area — systemGray6 */
+  --vp-c-bg-alt: #252527;        /* sidebar / nav / footer — lighter, macOS style */
+  --vp-c-bg-elv: #2c2c2e;        /* elevated: custom blocks, search — systemGray5 */
+  --vp-c-bg-soft: #2c2c2e;       /* cards, feature tiles */
+  --vp-c-gutter: #141416;        /* sidebar / content seam */
+
+  /* Text — Apple label colors */
+  --vp-c-text-1: rgba(255, 255, 255, 0.92);   /* labelColor */
+  --vp-c-text-2: rgba(235, 235, 245, 0.6);    /* secondaryLabelColor */
+  --vp-c-text-3: rgba(235, 235, 245, 0.3);    /* tertiaryLabelColor */
+
+  /* Separators — separatorColor */
+  --vp-c-divider: rgba(84, 84, 88, 0.65);
+  --vp-c-border: rgba(84, 84, 88, 0.65);
+
+  /* Neutrals — systemGray dark ramp */
+  --vp-c-gray-1: #8e8e93;
+  --vp-c-gray-2: #636366;
+  --vp-c-gray-3: #48484a;
+  --vp-c-gray-soft: rgba(142, 142, 147, 0.16);
+
+  /* Accent — systemBlue */
+  --vp-c-brand-1: #409cff;       /* links and emphasis */
+  --vp-c-brand-2: #0a84ff;       /* hover — systemBlue (dark) */
+  --vp-c-brand-3: #0071e3;       /* solid button background */
+  --vp-c-brand-soft: rgba(10, 132, 255, 0.12);
+
+  /* Custom blocks — systemOrange and systemRed */
+  --vp-c-warning-1: #ffb340;
+  --vp-c-warning-2: #ff9f0a;
+  --vp-c-warning-3: #c77500;
+  --vp-c-warning-soft: rgba(255, 159, 10, 0.11);
+
+  --vp-c-danger-1: #ff6961;
+  --vp-c-danger-2: #ff453a;
+  --vp-c-danger-3: #d70015;
+  --vp-c-danger-soft: rgba(255, 69, 58, 0.11);
+
+  /* Code blocks sit recessed below the page, like the Xcode editor.
+     Set explicitly because the default derives this from --vp-c-bg-alt,
+     which is lighter than the page here. */
+  --vp-code-block-bg: #141416;
+
+  /* Hero name accent — systemBlue into systemCyan */
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #0a84ff 30%,
+    #64d2ff
+  );
+}
+
+/* Footer: copyright on the left, social icons on the right. */
+.VPFooter .copyright {
+  text-align: left;
+}
+
+.footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Outspecifies the footer's `:deep(a)` underline rule. */
+.VPFooter .footer-social .footer-social-link {
+  display: inline-flex;
+  color: var(--vp-c-text-2);
+  text-decoration-line: none;
+  transition: color 0.25s;
+}
+
+.VPFooter .footer-social .footer-social-link:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.footer-social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 640px) {
+  .footer-bar {
+    justify-content: center;
+  }
+
+  .VPFooter .copyright {
+    text-align: center;
+  }
+}
+
+/* Align the footer with the main content column: same 1152px container and the
+   same responsive side padding the hero and feature sections use. VitePress
+   sets these in a scoped `.VPFooter[data-v-*]` rule, so !important is needed. */
+.VPFooter {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+.VPFooter .container {
+  max-width: 1152px !important;
+}
+
+@media (min-width: 640px) {
+  .VPFooter {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .VPFooter {
+    padding-left: 64px !important;
+    padding-right: 64px !important;
+  }
+}
+
+/* Desktop: push the hero image flush to the right of the content column.
+   VitePress centres it and pulls it 32px left; below 960px its own
+   `margin: 0 auto` keeps it centred, which is what we want there. */
+@media (min-width: 960px) {
+  /* `.image` collapses to the picture's own height (its `min-height: 100%`
+     cannot resolve against an auto-height parent), so centre the column
+     itself within the hero row rather than trying to stretch it. */
+  .VPHero .image {
+    align-self: center;
+  }
+
+  .VPHero .image-container {
+    justify-content: flex-end;
+    align-items: center;
+    /* VitePress offsets by translate(-32px, -32px); drop both so the image
+       sits flush right and centred vertically in the hero row. */
+    transform: none;
+  }
+}
+
+/* Hero action buttons: squarer corners than the default pill.
+   VitePress sets the radius on `.VPButton.medium`/`.big` in a scoped rule. */
+.VPHero .actions .VPButton {
+  border-radius: 12px !important;
+}

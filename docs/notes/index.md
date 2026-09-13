@@ -1,53 +1,68 @@
-# Foundations of Phase-Field Fracture
+# Notes
 
-## Notes Overview
+## Overview
 
-Phase-field fracture provides a variational and computationally robust framework for modeling crack initiation, propagation, branching, and interaction without explicit crack tracking. These notes develop a rigorous yet practical foundation for building, analyzing, and scaling phase-field fracture simulations.
+Phase-field fracture provides a variational and computationally robust framework for modeling crack initiation, propagation, branching, and interaction without explicit crack tracking. These notes develop the formulation behind **SPICE** (Scalable Phase-field Implementation of Crack Evolution) — from the energy functional, through the stress-based crack driving force, to the recursive adaptive mesh refinement and parallel implementation that make kilometre-scale glacier fracture simulation tractable.
 
-Rather than starting with a large codebase or a single application, the material builds the essential tools needed to understand the formulation, implement reliable solvers, and make informed modeling and numerical choices in research settings.
+They are written to be read alongside the code. Wherever a formulation choice shows up in the solver, the corresponding function in `src/` is named, and wherever a parameter is exposed, its key in the input file is given.
 
-## Who is the intended audience?
+## Who these are for
 
-My goal is to document what I learn and develop as I go, breaking down the formulation into intuitive steps and connecting it to my background in computational mechanics, finite elements, adaptivity, and high-performance computing.
+- Researchers and PhD students in solid mechanics, computational mechanics, and glaciology
+- Developers implementing fracture models in FEM codes, particularly FEniCS
+- Readers who understand PDEs and FEM and want an implementation-aware view of phase-field fracture
 
-These notes are ideal for:
+## Structure
 
-- Researchers and PhD students in solid mechanics, computational mechanics, and applied mathematics  
-- Developers and engineers implementing fracture models in FEM codes  
-- Readers who understand PDEs and FEM and want a deep, implementation-aware view of phase-field fracture  
+### Introduction
+What the phase field is and why it is the right tool for crevasses; what the Nye, LEFM and creep-damage models give up; where the method applies beyond glaciology; and the software, data, and reproducibility setup.
 
-## Notes Structure
+→ [What is phase-field fracture?](/notes/00_introduction/01_what_is_phase_field_fracture)
 
-The notes are divided into core modules that build logically from theory to implementation and large-scale practice.
+### Variational fracture mechanics
+The total energy functional, the constitutive model for glacier ice, the degradation functions $g(d)$ and $\chi(d)$, and the strong form obtained by minimization.
 
-### Module 1: Variational fracture mechanics foundations
-Griffith energy, regularized crack surfaces, energetic consistency, and the logic behind phase-field fracture as a variational approximation of brittle fracture.
+→ [Energy formulation](/notes/01_variational_fracture/01_energy_formulation)
 
-### Module 2: Phase-field fracture models and constitutive choices
-AT1 and AT2 formulations, degradation functions, tension-compression splits, irreversibility enforcement, and how modeling choices influence physical realism.
+### Phase-field models
+Why strain-energy-based models (AT1/AT2) mis-handle the tension–compression asymmetry of ice, and how the stress-based crack driving force, the Rankine-type failure envelope, and the history field replace them.
 
-### Module 3: Weak forms and finite element discretization
-Derivation of weak forms, function spaces, boundary conditions, stabilization considerations, and the mechanics of translating the formulation to FEM.
+→ [The stress-based driving force](/notes/02_phase_field_models/01_at_models)
 
-### Module 4: Solution strategies and numerical robustness
-Staggered versus monolithic schemes, nonlinear solvers, convergence behavior, time stepping, and failure modes in practical simulations.
+### Numerical implementation
+The Galerkin weak forms, function spaces, the alternate minimization scheme, why there are no load steps, convergence criteria, and the linear solvers.
 
-### Module 5: Adaptive mesh refinement for fracture
-Error indicators, refinement strategies near evolving cracks, field transfer between meshes, and how to resolve fracture zones efficiently without brute-force meshes.
+→ [Weak form and solution strategy](/notes/03_implementation/01_weak_form)
 
-### Module 6: High-performance and parallel fracture simulation
-Parallel assembly and solvers, memory bottlenecks, profiling, scalability, and practical strategies for running large-scale phase-field fracture simulations.
+### Adaptivity
+The RAMR algorithm: marking, unmarking by minimum element size, the accept–reject loop, field transfer between meshes, and deferred history-field projection.
 
-## What You'll Gain
+→ [Recursive adaptive mesh refinement](/notes/04_adaptivity/01_why_amr)
 
-- A clear understanding of the variational structure behind phase-field fracture  
-- The ability to implement and debug phase-field fracture solvers in FEM frameworks such as FEniCS  
-- Practical insight into numerical stability, parameter sensitivity, and solver design  
-- A roadmap for adaptivity and HPC workflows suitable for research-grade problems  
+### High-performance computing
+Measured component-wise strong scaling, why the refinement stage does not scale, how to choose a process count, memory management, and cloud execution.
 
-## Requirements
+→ [Parallel performance and scaling](/notes/05_hpc/01_parallel_scaling)
 
-- Strong Python proficiency and comfort with scientific computing  
-- Basic continuum mechanics and variational methods  
-- Familiarity with finite element discretization (weak forms, function spaces)  
-- No prior fracture mechanics specialization required, but it helps  
+### Applications
+What the glacier simulations actually show, synthesized across all six case studies.
+
+→ [Glacier crevasses](/notes/06_applications/01_glaciers)
+
+## What you'll get out of them
+
+- A clear understanding of the variational structure behind phase-field fracture and of the stress-based variant used for ice
+- The ability to read, run, modify and debug the SPICE solver
+- Practical insight into length-scale choice, parameter sensitivity, adaptivity settings and solver behaviour
+- A working picture of what adaptivity and MPI buy you, and where they stop buying
+
+## Assumed background
+
+- Python proficiency and comfort with scientific computing
+- Basic continuum mechanics and variational methods
+- Familiarity with finite element discretization (weak forms, function spaces)
+- No prior fracture mechanics specialization required
+
+## The companion volume
+
+Every case study in the manuscript has a page under [Examples](/examples/), with its input files, parameters, expected results, and the command to reproduce it.

@@ -1,12 +1,17 @@
+.nav-file-tag{
+  color : #ffc800 !important;
+}
 /* for editor */
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-  background-color: #263444;
-  color: #fff;
+  background-color: #ffc800 !important;
+  color: #000;
   border-radius: 0.4em;
-  border: 3px solid #90bfe2;
+  border: 2px solid #ffc800;
   padding-top: 16px;
   padding-bottom: 16px;
 }
+
+
 
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before,
 .markdown-source-view.mod-cm6 .cm-blockquote-border:before {
@@ -48,7 +53,9 @@
   padding-left: 12px;
   padding-right: 6px;
   padding-top: 2px;
+  padding-bottom: 4px;
   color: #fff !important;
+  line-height: 1.2 !important;
 }
 
 .cm-active {
@@ -188,6 +195,15 @@ img {
   border: 2px solid #1a1a1a;
 }
 
-body {
-  --file-line-width: 960px;
+.metadata-container{
+  margin: 0px !important;
 }
+
+.metadata-input-longtext{
+  -webkit-line-clamp: none !important;
+}
+
+body {
+  --file-line-width: 860px !important;
+}
+

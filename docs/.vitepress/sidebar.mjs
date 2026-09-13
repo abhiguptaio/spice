@@ -26,32 +26,114 @@ export const sidebar_content = {
         },
       ],
     },
+    {
+      text: "Variational Fracture Mechanics",
+      collapsed: false,
+      items: [
+        {
+          text: "Energy Formulation",
+          link: "/notes/01_variational_fracture/01_energy_formulation",
+        },
+      ],
+    },
+    {
+      text: "Phase-Field Models",
+      collapsed: false,
+      items: [
+        {
+          text: "The Stress-Based Driving Force",
+          link: "/notes/02_phase_field_models/01_at_models",
+        },
+      ],
+    },
+    {
+      text: "Numerical Implementation",
+      collapsed: false,
+      items: [
+        {
+          text: "Weak Form and Solution Strategy",
+          link: "/notes/03_implementation/01_weak_form",
+        },
+      ],
+    },
+    {
+      text: "Adaptivity",
+      collapsed: false,
+      items: [
+        {
+          text: "Recursive Adaptive Mesh Refinement",
+          link: "/notes/04_adaptivity/01_why_amr",
+        },
+      ],
+    },
+    {
+      text: "High-Performance Computing",
+      collapsed: false,
+      items: [
+        {
+          text: "Parallel Performance and Scaling",
+          link: "/notes/05_hpc/01_parallel_scaling",
+        },
+      ],
+    },
+    {
+      text: "Applications",
+      collapsed: false,
+      items: [
+        {
+          text: "Glacier Crevasses",
+          link: "/notes/06_applications/01_glaciers",
+        },
+      ],
+    },
   ],
 
   "/examples/": [
     {
-      text: "Phase-Field Fracture Examples",
+      text: "Getting Started",
       collapsed: false,
       items: [
         {
-          text: "1D Brittle Fracture: A Minimal Example",
-          link: "/examples/01_basics/01_1d_brittle_fracture",
+          text: "Running a Simulation",
+          link: "/examples/00_setup/01_running_a_simulation",
         },
         {
-          text: "2D Tension Test with Phase-Field Fracture",
-          link: "/examples/01_basics/02_2d_tension_test",
+          text: "Input File Reference",
+          link: "/examples/00_setup/02_input_file_reference",
         },
         {
-          text: "Single-Edge Notched Specimen (SEN)",
-          link: "/examples/02_benchmarks/01_sen_specimen",
+          text: "Meshes, Geometry, and Boundaries",
+          link: "/examples/00_setup/03_meshes_and_geometry",
+        },
+      ],
+    },
+    {
+      text: "Glacier Case Studies",
+      collapsed: false,
+      items: [
+        {
+          text: "4.1 Accuracy and Efficiency of RAMR",
+          link: "/examples/01_accuracy/01_ramr_vs_local_refinement",
         },
         {
-          text: "Adaptive Mesh Refinement near Cracks",
-          link: "/examples/03_adaptivity/01_amr_near_crack",
+          text: "4.2 Length-Scale Sensitivity",
+          link: "/examples/02_sensitivity/01_length_scale",
         },
         {
-          text: "Large-Scale Fracture Simulation and Scaling",
-          link: "/examples/04_hpc/01_parallel_scaling",
+          text: "4.3 Two-Crevasse Interaction",
+          link: "/examples/03_interaction/01_two_crevasse_interaction",
+        },
+        {
+          text: "4.4 Competitive Growth in Crevasse Fields",
+          link: "/examples/04_competitive/01_crevasse_fields",
+        },
+        {
+          text: "4.5 Parallel Performance and Kilometre Scale",
+          link: "/examples/05_parallel/01_strong_scaling",
+        },
+        {
+          text: "4.6 Effect of Margin Boundary Conditions",
+          link: "/examples/06_boundary/01_margin_boundary_conditions",
         },
       ],
     },
