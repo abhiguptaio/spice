@@ -9,51 +9,22 @@
 
 Scalable Phase-field Implementation of Crack Evolution — a parallel, recursively adaptive phase-field fracture framework in FEniCS for modeling surface crevasse growth and interaction in glaciers.
 
-<table width="100%" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/single_crevasse_ocean.gif" alt="Single crevasse propagating under gravity and ocean pressure" width="105%">
-      <br>
-      Single crevasse propagating under gravity and ocean pressure.
-    </td>
-    <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/ramr_mesh_refinement.gif" alt="RAMR refining the mesh around an advancing crack tip" width="105%">
-      <br>
-      RAMR refining the mesh around an advancing crack tip.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/two_crevasse_coalescence.gif" alt="Two crevasses turning toward each other and coalescing at S = 15 m" width="105%">
-      <br>
-      Two crevasses coalescing at <i>S</i> = 15 m.
-    </td>
-    <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/competitive_growth.gif" alt="Competitive growth in a five-crevasse field, with interior notches arrested by stress shielding" width="105%">
-      <br>
-      Competitive growth in a five-crevasse field.
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/arcuate_fixed_margin.gif" alt="Arcuate crevasses formed under a fixed lateral margin" width="105%">
-      <br>
-      Arcuate crevasses under a fixed lateral margin.
-    </td>
-    <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/crisscross_released_margin.gif" alt="Crisscross fracture network after the lateral constraint is released" width="105%">
-      <br>
-      Crisscross network after the margin is released.
-    </td>
-  </tr>
-</table>
-
 <div align="center">
-  <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/kilometre_scale_field.png" alt="Kilometre-scale crevasse field" width="98.5%">
+  <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/kilometre_scale_field.gif" alt="Kilometre-scale crevasse field: initial mesh, adaptively refined final mesh, resulting crevasses, and a zoomed view of the AMR mesh" width="98.5%">
 </div>
 
 <div align="center">
-  Kilometre-scale simulation of an idealized 1500 × 750 × 125 m glacier with 30 pre-existing surface notches spaced 90 m apart. A uniformly refined mesh at the 1–2 m resolution required by the phase-field length scale would need roughly one billion degrees of freedom; RAMR concentrates refinement in the fracture zones and brings the final mesh to about 13 million, completing the simulation in under ten hours on 20 CPU cores.
+  <em><b>Figure 1.</b> Kilometre-scale simulation of an idealized 1500 × 750 × 125 m glacier with 30 pre-existing surface notches spaced 90 m apart. A uniformly refined mesh at the 1–2 m resolution required by the phase-field length scale would need roughly one billion degrees of freedom; RAMR concentrates refinement in the fracture zones and brings the final mesh to about 13 million, completing the simulation in under ten hours on 20 CPU cores.</em>
+</div>
+
+---
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/margin_boundary_conditions.gif" alt="Arcuate crevasses under a fixed lateral margin, and the crisscross network that forms once the constraint is released" width="98.5%">
+</div>
+
+<div align="center">
+  <em><b>Figure 2.</b> Effect of the lateral margin, with everything but the back boundary held identical. Fixing it (left) concentrates tensile stress along the constrained face, so only a few crevasses near the terminus propagate, on arcuate paths curving toward the ocean. Releasing it (right) redistributes stress along the flow direction, producing a crisscross network with branching, merging and multi-directional growth. The inset photographs show comparable patterns on real glaciers.</em>
 </div>
 
 ## Key Features
