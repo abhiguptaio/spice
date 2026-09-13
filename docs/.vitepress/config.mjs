@@ -2,8 +2,8 @@ import { defineConfig } from "vitepress";
 import { sidebar_content } from "./sidebar.mjs";
 
 // Define base path once
-const BASE_PATH = "/vite-docs/"; // This should be your repo name.
-const websiteURL = `https://iitrabhi.github.io`;
+const BASE_PATH = "/spice/"; // This should be your repo name.
+const websiteURL = `https://abhiguptaio.github.io`;
 
 export default defineConfig({
   base: BASE_PATH,
