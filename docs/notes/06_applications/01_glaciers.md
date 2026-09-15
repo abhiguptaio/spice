@@ -68,11 +68,11 @@ Crevasse spacing is therefore an important parameter for determining crevasse de
 
 Changing only the treatment of the back boundary at $y = 750\,\mathrm{m}$ changes the entire fracture pattern ([§4.6](/examples/06_boundary/01_margin_boundary_conditions)):
 
-**Fixed margin.** Tensile stresses accumulate along the constrained face and crevasses initiate immediately along it. Only a few near the terminus propagate, with **arcuate paths** curving toward the ocean boundary. A fixed lateral constraint concentrates stress along the margin and restricts crevasse development away from the ocean boundary.
+**Fixed margin.** Tensile stresses accumulate along the constrained face and crevasses initiate immediately along it. Only a few near the terminus propagate, with **curved paths** curving toward the ocean boundary. A fixed lateral constraint concentrates stress along the margin and restricts crevasse development away from the ocean boundary.
 
 **Released margin.** Releasing the constraint lets the glacier body move, producing large tensile stresses along the flow direction. The redistribution allows additional cracks to form, with propagation both parallel and perpendicular to flow: branching, merging, curved paths and multi-directional growth — a **crisscross** network.
 
-Both patterns have field counterparts. Arcuate (chevron or en echelon) crevasses are commonly observed where one boundary is fixed relative to the ocean boundary; crisscross or checkerboard patterns are seen near the termini of rapidly calving glaciers including Thwaites Glacier, Narsap Sermia, and glaciers with likely weak lateral buttressing such as the Pine Island Ice Shelf. Away from lateral margins, where the constraint is absent, crevasses are expected to be straighter — which is what is observed.
+Both patterns have field counterparts. Curved crevasses are commonly observed where one boundary is fixed relative to the ocean boundary; crisscross or checkerboard patterns are seen near the termini of rapidly calving glaciers including Thwaites Glacier, Narsap Sermia, and glaciers with likely weak lateral buttressing such as the Pine Island Ice Shelf. Away from lateral margins, where the constraint is absent, crevasses are expected to be straighter — which is what is observed.
 
 ## Why 3-D fracture modeling matters here
 

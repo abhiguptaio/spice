@@ -20,7 +20,7 @@ By representing cracks as a smoothly varying diffuse damage zone, PFMs capture i
 
 - crevasses **shield** each other when closely spaced, arresting growth;
 - crevasses **curve** toward each other and **coalesce** when very closely spaced;
-- lateral boundary conditions reorganize the whole fracture pattern, producing arcuate and crisscross geometries seen in satellite imagery.
+- lateral boundary conditions reorganize the whole fracture pattern, producing curved and crisscross geometries seen in satellite imagery.
 
 None of these are prescribed. They are outcomes of the same field equation.
 

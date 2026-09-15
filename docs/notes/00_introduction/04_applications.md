@@ -12,13 +12,11 @@ This is the target application and the source of every example in this repositor
 
 **Competitive growth in crevasse fields.** With five uniformly spaced notches, only a subset becomes dominant; the interior notches arrest early because the growing outer crevasses shield them ([§4.4](/examples/04_competitive/01_crevasse_fields)). This is the mechanism behind rift selection in a field of near-identical defects.
 
-**Calving-front-scale fracture patterns.** At $1500 \times 750 \times 125\,\mathrm{m}$ with 30 initial notches, the simulated pattern reproduces the arcuate (chevron / en echelon) crevasses seen where one boundary is fixed relative to the ocean boundary, and a crisscross pattern once the lateral constraint is released ([§4.6](/examples/06_boundary/01_margin_boundary_conditions)). Similar patterns are observed near the termini of Thwaites Glacier, Narsap Sermia, and the Pine Island Ice Shelf.
+**Calving-front-scale fracture patterns.** At $1500 \times 750 \times 125\,\mathrm{m}$ with 30 initial notches, the simulated pattern reproduces the curved crevasses seen where one boundary is fixed relative to the ocean boundary, and a crisscross pattern once the lateral constraint is released ([§4.6](/examples/06_boundary/01_margin_boundary_conditions)). Similar patterns are observed near the termini of Thwaites Glacier, Narsap Sermia, and the Pine Island Ice Shelf.
 
 ## Beyond glaciology
 
-The governing equations contain nothing ice-specific: a linear elastic solid, a tensile failure surface in principal stress space, and a regularized damage field. The same implementation applies wherever brittle fracture under self-weight and pressure loading is the question — rock, sea ice, soil, and geotechnical engineering problems generally.
-
-Natural extensions identified in the SPICE paper, none of which are implemented in this repository today:
+The same implementation applies wherever brittle fracture under self-weight and pressure loading is the question — rock, sea ice, soil, and geotechnical engineering problems generally. Natural extensions identified in the SPICE paper, none of which are implemented in this repository today:
 
 - **Viscous and visco-elastic ice flow**, replacing the linear elastic constitutive assumption;
 - **Strength-surface-based failure criteria** (e.g. Mohr–Coulomb) in place of the Rankine-type envelope, for ice-cliff stability;

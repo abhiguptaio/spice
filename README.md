@@ -20,11 +20,11 @@ Scalable Phase-field Implementation of Crack Evolution — a parallel, recursive
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/margin_boundary_conditions.gif" alt="Arcuate crevasses under a fixed lateral margin, and the crisscross network that forms once the constraint is released" width="98.5%">
+  <img src="https://raw.githubusercontent.com/abhiguptaio/spice/main/assets/margin_boundary_conditions.gif" alt="Curved crevasses under a fixed lateral margin, and the crisscross network that forms once the constraint is released" width="98.5%">
 </div>
 
 <div align="center">
-  <em><b>Figure 2.</b> Effect of the lateral margin, with everything but the back boundary held identical. Fixing it (left) concentrates tensile stress along the constrained face, so only a few crevasses near the terminus propagate, on arcuate paths curving toward the ocean. Releasing it (right) redistributes stress along the flow direction, producing a crisscross network with branching, merging and multi-directional growth. The inset photographs show comparable patterns on real glaciers.</em>
+  <em><b>Figure 2.</b> Effect of the lateral margin, with everything but the back boundary held identical. Fixing it (left) concentrates tensile stress along the constrained face, so only a few crevasses near the terminus propagate, on curved paths curving toward the ocean. Releasing it (right) redistributes stress along the flow direction, producing a crisscross network with branching, merging and multi-directional growth. The inset photographs show comparable patterns on real glaciers.</em>
 </div>
 
 ## Key Features

@@ -43,7 +43,7 @@ features:
 
   - title: Glacier case studies
     icon: ❖
-    details: What the simulations show — ocean pressure controls crevasse depth, spacing controls the pattern, stress shielding selects which defects become rifts, and lateral margin conditions produce arcuate or crisscross fracture networks.
+    details: What the simulations show — ocean pressure controls crevasse depth, spacing controls the pattern, stress shielding selects which defects become rifts, and lateral margin conditions produce curved or crisscross fracture networks.
     link: /notes/06_applications/01_glaciers
 
 ---

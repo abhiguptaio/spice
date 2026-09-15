@@ -1,9 +1,5 @@
 # Relation to Classical Fracture Mechanics
 
-Phase-field fracture is not a departure from Griffith's theory — it is a regularized version of it. This page places the stress-based PFM used in SPICE next to the models it is meant to replace, and shows what each predicts for the same glacier problem.
-
-## The family tree
-
 **Griffith / LEFM.** A crack grows when the energy released per unit of new crack area reaches the material's fracture energy. In practice this is evaluated through a stress intensity factor $K$ compared against a toughness $K_c$. The crack path must be assumed.
 
 **Variational (Francfort–Marigo) fracture.** Griffith's criterion restated as minimization of a total energy that includes a surface term proportional to crack area. Crack path is no longer assumed — it falls out of the minimization — but the surface term is still defined on an unknown surface.
