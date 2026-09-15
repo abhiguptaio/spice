@@ -37,7 +37,6 @@ class CheckpointState:
     history: Any
     time_index: int
     outer_iteration: int
-    solve_error: float
 
 
 def mprint(communicator, *values) -> None:
@@ -162,7 +161,6 @@ def load_checkpoint(config: SimulationConfig, communicator) -> CheckpointState:
         attributes = checkpoint_file.attributes("/")
         time_index = int(attributes["time_index"])
         outer_iteration = int(attributes["outer_iteration"])
-        solve_error = float(attributes["solve_error"])
 
     return CheckpointState(
         mesh=mesh,
@@ -171,13 +169,17 @@ def load_checkpoint(config: SimulationConfig, communicator) -> CheckpointState:
         history=history,
         time_index=time_index,
         outer_iteration=outer_iteration,
-        solve_error=solve_error,
     )
 
 
 def run_adaptive(mesh, config: SimulationConfig, communicator) -> RunResult:
     process = psutil.Process(os.getpid())
     start_time = time.time()
+
+    # Neither path has a measured error before the first solve: a restart
+    # always runs one outer iteration and recomputes the error from it
+    # rather than trusting a value stored in the checkpoint.
+    solve_error = 1.0
 
     if config.restart_checkpoint.enabled:
         checkpoint_state = load_checkpoint(config, communicator)
@@ -188,7 +190,6 @@ def run_adaptive(mesh, config: SimulationConfig, communicator) -> RunResult:
         history_state = checkpoint_state.history
         time_index = checkpoint_state.time_index
         outer_iteration = checkpoint_state.outer_iteration
-        solve_error = checkpoint_state.solve_error
         final_displacement = displacement_state
         mprint(
             communicator,
@@ -201,7 +202,6 @@ def run_adaptive(mesh, config: SimulationConfig, communicator) -> RunResult:
         displacement_state, damage_state, history_state = _make_state(spaces)
         time_index = 0
         outer_iteration = 0
-        solve_error = 1.0
         final_displacement = None
 
     output_file = _prepare_output(config, communicator)
