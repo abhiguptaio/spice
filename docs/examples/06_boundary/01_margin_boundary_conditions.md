@@ -1,8 +1,10 @@
 # Effect of Margin Boundary Conditions
 
-> **Input files:** `examples/4.6.boundary/01.toml`, `examples/4.6.boundary/02.toml`
-> **Mesh:** `data/mesh/11/Lx1500_30C_S90.xdmf`
-> **Manuscript section:** 4.6
+::: warning Files for this example
+- **Input files:** `examples/4.6.boundary/01.toml`, `examples/4.6.boundary/02.toml`
+- **Mesh:** `data/mesh/11/Lx1500_30C_S90.xdmf`
+- **Manuscript section:** 4.6
+:::
 
 Real glacier margins do not remain mechanically fixed. As the glacier flows, slides, stretches, and develops damage at the lateral margins, the boundary weakens and transitions from a fixed (stiff) condition to a slip (compliant) one. This two-part experiment represents that transition in an idealized setting, and shows how much of the fracture pattern it controls.
 

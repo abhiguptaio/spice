@@ -1,8 +1,10 @@
 # Parallel Performance and the Kilometre-Scale Field
 
-> **Input files:** `examples/4.5.parallel/01-06.toml`, `examples/4.5.parallel/07.toml`
-> **Meshes:** `data/mesh/10`, `data/mesh/11`
-> **Manuscript section:** 4.5
+::: warning Files for this example
+- **Input files:** `examples/4.5.parallel/01-06.toml`, `examples/4.5.parallel/07.toml`
+- **Meshes:** `data/mesh/10`, `data/mesh/11`
+- **Manuscript section:** 4.5
+:::
 
 Two experiments: a strong-scaling measurement of the RAMR workflow, and the kilometre-scale simulation that the parallel implementation makes possible.
 

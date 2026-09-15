@@ -1,8 +1,10 @@
 # Two-Crevasse Interaction
 
-> **Input files:** `examples/4.3.interaction/01.toml` – `04.toml`
-> **Meshes:** `data/mesh/03` – `data/mesh/06`
-> **Manuscript section:** 4.3
+::: warning Files for this example
+- **Input files:** `examples/4.3.interaction/01.toml` – `04.toml`
+- **Meshes:** `data/mesh/03` – `data/mesh/06`
+- **Manuscript section:** 4.3
+:::
 
 Two surface crevasses that are close enough to feel each other's stress field do not behave like two independent cracks. This study maps out what happens as the separation is varied.
 

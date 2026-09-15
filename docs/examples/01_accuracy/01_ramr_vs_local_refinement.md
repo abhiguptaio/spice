@@ -1,8 +1,10 @@
 # Accuracy and Efficiency of RAMR
 
-> **Input files:** `examples/4.1.accuracy/01.toml` – `09.toml`
-> **Meshes:** `data/mesh/01`, `data/mesh/02`, `data/mesh/12`
-> **Manuscript section:** 4.1
+::: warning Files for this example
+- **Input files:** `examples/4.1.accuracy/01.toml` – `09.toml`
+- **Meshes:** `data/mesh/01`, `data/mesh/02`, `data/mesh/12`
+- **Manuscript section:** 4.1
+:::
 
 This is the validation study. It answers two questions: can the recursive adaptive mesh refinement (RAMR) algorithm reproduce the solution obtained on a locally refined (LR) mesh, and how much does it save in degrees of freedom and wall-clock time?
 

@@ -1,8 +1,10 @@
 # Length-Scale Sensitivity
 
-> **Input files:** `examples/4.2.sensitivity/01.toml` – `03.toml`
-> **Mesh:** `data/mesh/02/Lx500_1C_AD.xdmf`
-> **Manuscript section:** 4.2
+::: warning Files for this example
+- **Input files:** `examples/4.2.sensitivity/01.toml` – `03.toml`
+- **Mesh:** `data/mesh/02/Lx500_1C_AD.xdmf`
+- **Manuscript section:** 4.2
+:::
 
 The phase-field length scale $\ell$ governs the width of the diffused damage zone. It is also the single largest control on cost, because it sets the minimum mesh resolution needed to resolve that zone. This study asks how much the answer actually depends on it.
 

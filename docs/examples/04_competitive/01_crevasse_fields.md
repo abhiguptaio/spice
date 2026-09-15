@@ -1,8 +1,10 @@
 # Competitive Growth in Crevasse Fields
 
-> **Input files:** `examples/4.4.competitive/01.toml` – `03.toml`
-> **Meshes:** `data/mesh/07`, `data/mesh/08`, `data/mesh/09`
-> **Manuscript section:** 4.4
+::: warning Files for this example
+- **Input files:** `examples/4.4.competitive/01.toml` – `03.toml`
+- **Meshes:** `data/mesh/07`, `data/mesh/08`, `data/mesh/09`
+- **Manuscript section:** 4.4
+:::
 
 Real glaciers do not have one or two crevasses; they have fields of them. This study evaluates competitive growth — which pre-existing defects become dominant rifts, and which arrest.
 
