@@ -1,6 +1,6 @@
 # Competitive Growth in Crevasse Fields
 
-::: warning Files for this example
+::: tip Files for this example
 - **Input files:** `examples/4.4.competitive/01.toml` – `03.toml`
 - **Meshes:** `data/mesh/07`, `data/mesh/08`, `data/mesh/09`
 - **Manuscript section:** 4.4

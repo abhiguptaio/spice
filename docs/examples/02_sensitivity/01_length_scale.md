@@ -1,6 +1,6 @@
 # Length-Scale Sensitivity
 
-::: warning Files for this example
+::: tip Files for this example
 - **Input files:** `examples/4.2.sensitivity/01.toml` – `03.toml`
 - **Mesh:** `data/mesh/02/Lx500_1C_AD.xdmf`
 - **Manuscript section:** 4.2

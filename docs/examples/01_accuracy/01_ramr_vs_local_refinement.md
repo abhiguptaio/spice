@@ -1,6 +1,6 @@
 # Accuracy and Efficiency of RAMR
 
-::: warning Files for this example
+::: tip Files for this example
 - **Input files:** `examples/4.1.accuracy/01.toml` – `09.toml`
 - **Meshes:** `data/mesh/01`, `data/mesh/02`, `data/mesh/12`
 - **Manuscript section:** 4.1

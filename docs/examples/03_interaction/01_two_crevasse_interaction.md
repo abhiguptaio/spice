@@ -1,6 +1,6 @@
 # Two-Crevasse Interaction
 
-::: warning Files for this example
+::: tip Files for this example
 - **Input files:** `examples/4.3.interaction/01.toml` – `04.toml`
 - **Meshes:** `data/mesh/03` – `data/mesh/06`
 - **Manuscript section:** 4.3

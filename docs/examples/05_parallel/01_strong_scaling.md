@@ -1,6 +1,6 @@
 # Parallel Performance and the Kilometre-Scale Field
 
-::: warning Files for this example
+::: tip Files for this example
 - **Input files:** `examples/4.5.parallel/01-06.toml`, `examples/4.5.parallel/07.toml`
 - **Meshes:** `data/mesh/10`, `data/mesh/11`
 - **Manuscript section:** 4.5

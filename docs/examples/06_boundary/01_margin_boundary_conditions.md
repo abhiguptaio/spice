@@ -1,6 +1,6 @@
 # Effect of Margin Boundary Conditions
 
-::: warning Files for this example
+::: tip Files for this example
 - **Input files:** `examples/4.6.boundary/01.toml`, `examples/4.6.boundary/02.toml`
 - **Mesh:** `data/mesh/11/Lx1500_30C_S90.xdmf`
 - **Manuscript section:** 4.6
