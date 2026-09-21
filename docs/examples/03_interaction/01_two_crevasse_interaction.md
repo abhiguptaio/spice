@@ -30,34 +30,6 @@ done
 ```
 
 Final mesh sizes vary significantly between the four, depending on whether the crevasses coalesce or shield each other.
-
-## Results
-
-| $S$ [m] | Final DoFs | Crack depth [m] | Wall clock [hr] | Interaction |
-| ---: | ---: | ---: | ---: | --- |
-| 15 | 220,269 | 39 | 0.5 | Coalescence |
-| 25 | 280,544 | 40 | 0.6 | Curved, no coalescence |
-| 50 | 437,255 | 40 | 1.7 | Parallel, crossing tips |
-| 100 | 630,793 | 40 | 1.9 | Independent propagation |
-
-## The four regimes
-
-**$S = 15\,\mathrm{m}$ — coalescence.** The crevasses propagate toward each other, turn, and merge. Coalescence occurs because the stress fields near the crack tips overlap strongly, which locally amplifies the tensile stress in the bridging zone between them.
-
-**$S = 25\,\mathrm{m}$ — curving without merging.** The two crevasses still grow toward each other and curve as they approach, driven by the same stress redistribution, but it is no longer sufficient to cause coalescence.
-
-**$S = 50\,\mathrm{m}$ — shielding.** The crevasses advance past each other without merging and stop growing shortly after, leaving a pair of disconnected crevasses that shield each other from growing further.
-
-**$S = 100\,\mathrm{m}$ — independence.** Each crevasse propagates toward the opposite side of the glacier without any interaction.
-
-## What to take from it
-
-**Spacing decides the pattern.** Whether crevasses coalesce, curve, shield or grow independently is set by $2S$. At small spacing, the intensification of stress at interacting crack tips leads to turning and merging; at larger spacing, they shield and thwart each other or grow independently.
-
-**Spacing does not decide the depth.** Depth remains nearly constant at 39–40 m across all four simulations. Interaction operates in the horizontal plane; vertical propagation is governed by the magnitude of the longitudinal tensile stress, which is set by the glacier height (raising tension) and the seawater height (curtailing it).
-
-**RAMR handles all four without modification.** The same algorithm and the same settings refine appropriately for two simultaneously propagating crevasses, whichever regime they fall into. The final DoF count is itself diagnostic: coalescing crevasses need less refined volume (220k DoFs) than two independently propagating ones (631k).
-
 ## Next
 
 - [Competitive growth in crevasse fields](/examples/04_competitive/01_crevasse_fields) — the same physics with five and ten notches

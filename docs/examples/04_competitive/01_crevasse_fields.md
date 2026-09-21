@@ -28,28 +28,6 @@ for f in examples/4.4.competitive/*.toml; do
 done
 ```
 
-## Results
-
-| Case | Initial DoFs | Final DoFs | Which propagate | Depth [m] |
-| --- | ---: | ---: | --- | ---: |
-| 5 notches, $S = 50\,\mathrm{m}$ | 30,322 | — | 1st and 5th | ~41 |
-| 5 notches, $S = 70\,\mathrm{m}$ | — | — | 1st and 4th | ~40 |
-| 10 notches (2 faces), $S = 70\,\mathrm{m}$ | 33,312 | 626,232 | 1st and 4th from the left, on each flank | ~41 |
-
-In the two-sided case, the propagating crevasses coalesce with their opposing counterparts, forming through-going rifts.
-
-## What to take from it
-
-**Uniform defects do not give uniform outcomes.** With five identically sized and uniformly spaced notches, only two become dominant. The interior notches arrest early.
-
-**The mechanism is stress shielding.** The growing outer crevasses reduce the tensile stress in the inner regions, suppressing fracture propagation there. Which notches win depends on the spacing: at $S = 50\,\mathrm{m}$ it is the first and fifth, at $S = 70\,\mathrm{m}$ the first and fourth.
-
-**Depth is again insensitive.** Final crevasse depths remain comparable (~40–41 m) across the cases, consistent with [§4.3](/examples/03_interaction/01_two_crevasse_interaction). But *which* crevasses grow changes, which is why spacing is an important factor for understanding calving dynamics.
-
-**The arrested crevasses explain the depth.** Because most notches arrest due to mutual shielding, the final depths are consistent with the LEFM model appropriate for *isolated* crevasses, rather than with the zero-stress model appropriate for *closely spaced* crevasses.
-
-**RAMR is what makes this feasible in serial.** Capturing the growth of multiple crevasses across a domain this large would otherwise require globally refined meshes with tens of millions of finite elements. RAMR keeps the problem in the hundreds of thousands of DoFs while maintaining resolution where it matters — at the evolving fracture front.
-
 ## Next
 
 - [Strong scaling and the kilometre-scale field](/examples/05_parallel/01_strong_scaling) — thirty crevasses over 1.5 km

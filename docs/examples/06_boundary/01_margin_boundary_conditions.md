@@ -59,22 +59,6 @@ mpirun -np 20 python3 main.py --input examples/4.6.boundary/02.toml
 
 Stage 1 must complete before stage 2 starts; the second run reads the first run's checkpoint.
 
-## Results
-
-**Fixed margin.** During the fixed-boundary stage, tensile stresses accumulate along the constrained face, leading to immediate crevasse initiation at $y = 750\,\mathrm{m}$ along the lateral margin. Only a few crevasses near the terminus propagate, with **curved paths** that gradually curve toward the right (ocean) boundary. A fixed lateral constraint concentrates stress along the margin and restricts the development of crevasses far from the ocean boundary perpendicular to the flow direction.
-
-**Released margin.** Releasing the constraint lets the glacier body move, producing large tensile stresses along the flow direction (left to right). The resulting stress redistribution allows additional cracks to form, creating fracture patterns with propagation **both parallel and perpendicular** to flow. Crevasses spread all through the glacier domain, featuring branching, merging, curved propagation paths and multi-directional growth — a **crisscross** network.
-
-Throughout, RAMR keeps the global problem size below roughly **13 million DoFs**, and the full simulation completes within **two days on 20 CPU cores**. Capturing multi-directional crack branching, coalescence and curving, and interactions between closely spaced cracks at kilometre scale, would be prohibitively expensive with a uniformly refined mesh requiring on the order of a billion DoFs.
-
-## What to take from it
-
-**Margin conditions reorganize the entire pattern.** The same domain, the same notches, and the same material produce two qualitatively different fracture networks depending only on how one lateral face is constrained.
-
-**Both patterns are observed in nature.** Curved crevasses — referred to in the glaciology community as chevron or en echelon crevasses — are commonly formed when one boundary is fixed relative to the ocean boundary. Crisscross or checkerboard patterns are seen near the termini of rapidly calving glaciers including Thwaites Glacier in Antarctica, calving outlet glaciers such as Narsap Sermia in Greenland, and glaciers with likely weak lateral buttressing such as the Pine Island Ice Shelf. Away from lateral margins, crevasses are expected to be straighter — which is what is observed.
-
-**Depth alone is not enough.** In the fixed-margin case, even where crevasses reach the full glacier depth, only some would lead to calving — specifically because of the lack of connection to the calving front or the lateral boundary. Whether an iceberg detaches depends on the three-dimensional extent and connectivity of the fracture network, not only on how deep it goes. This is the strongest argument in the study for high-fidelity 3-D fracture modeling over parameterized bulk crevasse depth.
-
 ## Reusing the restart pattern
 
 This two-stage construction generalizes. Any experiment of the form *"run to a converged fracture state, then change something and continue"* can be built the same way: enable `[write_checkpoint]` in the first input, point `[restart_checkpoint]` at it in the second, and change whatever you like in between — boundary conditions, ocean level, load direction. See the [input reference](/examples/00_setup/02_input_file_reference#write-checkpoint-and-restart-checkpoint).
