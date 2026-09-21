@@ -30,7 +30,7 @@ All runs use a phase-field length scale $\ell = 10\,\mathrm{m}$ with minimum ele
 | `08.toml` | `12` refined LR | off | $0.25H$ | 5.0 | `output/08/` |
 | `09.toml` | `12` refined LR | off | $0$ | 10.0 | `output/09/` |
 
-Files `01`–`03` are the locally refined reference; `04`–`06` are the matching adaptive runs; `07`–`09` repeat the same three water levels on a further-refined non-adaptive mesh as a resolution check.
+Files `01`–`03` are the locally refined reference; `04`–`06` are the matching adaptive runs; `07`–`09` repeat the same three water levels on globally-refined non-adaptive mesh.
 
 Everything else is shared: $\ell = 10\,\mathrm{m}$, `target_hmin = 2.5`, `damage_threshold = 0.1`, $\zeta = 1.5$, $\sigma_c = 0.1185\,\mathrm{MPa}$, $\kappa = 10^{-4}$.
 
@@ -47,27 +47,6 @@ python3 main.py --input examples/4.1.accuracy/01.toml
 ```
 
 The LR reference runs are expensive — tens of hours in serial — because the fine mesh exists everywhere the crack might go. That is the point of the comparison.
-
-## Results
-
-| Metric | $h_w = 0$ | $h_w = 0.25H$ | $h_w = 0.5H$ |
-| --- | ---: | ---: | ---: |
-| Crevasse depth (LR) [m] | 110 | 88 | 39 |
-| Crevasse depth (RAMR) [m] | 112 | 89 | 40 |
-| Crevasse depth (LEFM) [m] | 112 | 89 | 39 |
-| Final NDoFs (LR) | 1,493,508 | 1,493,508 | 1,493,508 |
-| Final NDoFs (RAMR) | 869,590 | 604,098 | 243,655 |
-| Wall-clock (LR) [hr] | 69.6 | 47.5 | 42.3 |
-| Wall-clock (RAMR) [hr] | 3.5 | 2.4 | 2.2 |
-| **Speedup** | **19.9×** | **19.8×** | **19.2×** |
-
-## What to take from it
-
-**Accuracy.** RAMR captures the final crack depth within 2% of the LR solution, and matches the analytical LEFM reference for an isolated crevasse. Ocean pressure is the dominant control on depth: raising $h_w$ from 0 to $0.5H$ cuts the crevasse depth from ~112 m to ~40 m.
-
-**Efficiency.** Final DoFs are reduced by approximately 33%, 60% and 84% for $h_w = 0$, $0.25H$ and $0.5H$. The reduction is largest when the crack is shortest, because less of the domain ever needs fine elements.
-
-**Why even 33% matters.** Each adaptive simulation begins from the same coarse mesh of ~28,000 DoFs and introduces refinement dynamically. Even in the case with the smallest DoF reduction, the algorithm avoids generating many of the fine elements that a locally refined mesh must include *everywhere*, because the crack location is not known in advance. That is what produces the consistent 19–20× reduction in wall-clock time — the DoF count alone understates the saving.
 
 ## What to look at in the output
 

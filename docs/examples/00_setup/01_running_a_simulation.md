@@ -101,8 +101,7 @@ This is also how a *continued* experiment is set up — restart from a converged
 
 ## Choosing the process count
 
-RAMR's refinement stage does not scale well (see [parallel performance](/notes/05_hpc/01_parallel_scaling)). On the published benchmark, total runtime is lowest around 8–16 cores and *worse* at 32 than at
-8. The kilometre-scale production runs used 20. More cores is not automatically faster for this workflow.
+RAMR's refinement stage does not scale well (see [parallel performance](/notes/05_hpc/01_parallel_scaling)). On the published benchmark, total runtime is lowest around 8–16 cores and *worse* at 32 than at 8. The kilometre-scale production runs used 20. More cores is not automatically faster for this workflow.
 
 ## Next
 
