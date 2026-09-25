@@ -13,7 +13,7 @@ hero:
       link: /examples/00_setup/01_running_a_simulation
     - theme: alt
       text: GitHub
-      link: https://github.com/iitrabhi
+      link: https://github.com/abhiguptaio/spice
 
 features:
   - title: Variational fracture mechanics
