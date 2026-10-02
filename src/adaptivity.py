@@ -49,13 +49,25 @@ def mprint(communicator, *values) -> None:
 
 def transfer_to_space(source_function, target_space):
     source_space = source_function.ufl_function_space()
-    transfer_matrix = PETScDMCollection.create_transfer_matrix(
-        source_space, target_space
-    )
-    target_function = Function(target_space)
-    target_function.vector()[:] = transfer_matrix * source_function.vector()
-    return target_function
 
+    transfer_matrix = PETScDMCollection.create_transfer_matrix(
+        source_space,
+        target_space,
+    )
+
+    target_function = Function(target_space)
+
+    source_vector = source_function.vector()
+    target_vector = target_function.vector()
+
+    A = as_backend_type(transfer_matrix).mat()
+    x = as_backend_type(source_vector).vec()
+    y = as_backend_type(target_vector).vec()
+
+    A.mult(x, y)
+    target_vector.apply("insert")
+
+    return target_function
 
 def get_markers(
     damage,
